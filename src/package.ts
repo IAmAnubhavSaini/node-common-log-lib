@@ -21,7 +21,7 @@ function exitOnError(severity: TypesEnum) {
     }
 }
 
-function log(tag: string, message = '', severity: TypesEnum) {
+function log(tag: string, message = '-', severity: TypesEnum = TypesEnum.INFO) {
     let _logFn: ((tag?: string, message?: string) => never | any);
     switch (severity) {
         case TypesEnum.ERROR:

@@ -24,7 +24,8 @@ function exitOnError(severity) {
     }
 }
 function log(tag, message, severity) {
-    if (message === void 0) { message = ''; }
+    if (message === void 0) { message = '-'; }
+    if (severity === void 0) { severity = TypesEnum.INFO; }
     var _logFn;
     switch (severity) {
         case TypesEnum.ERROR:
