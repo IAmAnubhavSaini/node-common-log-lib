@@ -1,6 +1,6 @@
 {
   "name": "@f0c1s/node-common-log-lib",
-  "version": "2025.04.12",
+  "version": "2025.04.13",
   "description": "A simple logging library.",
   "main": "src/package.js",
   "devDependencies": {

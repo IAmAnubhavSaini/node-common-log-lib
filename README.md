@@ -11,15 +11,26 @@ npm install @f0c1s/node-common-log-lib
 ## Usage
 
 ```javascript
-const { default: log, TypesEnum } = require("@f0c1s/node-common-log-lib");
+> const {log, LogTypes} = require("./src/package.js");
 
-log(">>some tag from @f0c1s/node-common-log-tag>", "Some message!", TypesEnum.INFO);
-// >>some tag from @f0c1s/node-common-log-tag> Some message!
+> log(Date.now(), "Transaction 123", LogTypes.ERROR);
+1744470401951 1744470401951 [ERROR] Transaction 123
 
-log(">>some tag from @f0c1s/node-common-log-tag>", "Some message!", TypesEnum.ERROR);
-// >>some tag from @f0c1s/node-common-log-tag> Some message!
-// Exiting application on ERROR
-// Exiting application on ERROR
+> log("service1", "Transaction 123", LogTypes.ERROR);
+1744470420862 service1 [ERROR] Transaction 123
+
+> log("t", "Transaction 123", LogTypes.ERROR);
+1744470427401 t [ERROR] Transaction 123
+
+> log("t", "Transaction 123", LogTypes.INFO);
+1744470431082 t [INFO] Transaction 123
+
+> log("T", "Transaction 123", LogTypes.INFO);
+1744470442422 T [INFO] Transaction 123
+
+> log("SERV", "Transaction 123", LogTypes.LOG);
+1744470454570 SERV [LOG] Transaction 123
+
 ```
 
 ## License

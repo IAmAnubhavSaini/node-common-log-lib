@@ -12,17 +12,8 @@ const TYPES = {
     LOG: console.log,
 };
 
-function exitOnError(severity: LogTypes) {
-    const exitMessage = "Exiting application on ERROR";
-    if (severity === LogTypes.ERROR) {
-        console.log(exitMessage);
-        console.error(exitMessage);
-        process.exit(1);
-    }
-}
-
-function log(tag: string, message = "-", severity: LogTypes = LogTypes.INFO) {
-    let _logFn: (tag?: string, message?: string) => never | any;
+function log(tag: string, message = "-", severity: LogTypes = LogTypes.INFO): void {
+    let _logFn: (now: number, tag?: string, severity?: string, message?: string) => never | any;
     switch (severity) {
         case LogTypes.ERROR:
             _logFn = TYPES.ERROR;
@@ -40,11 +31,8 @@ function log(tag: string, message = "-", severity: LogTypes = LogTypes.INFO) {
             _logFn = TYPES.INFO;
     }
 
-    _logFn(tag, message);
-
-    exitOnError(severity);
+    _logFn(Date.now(), tag, `[${severity.toString()}]`, message);
+    return;
 }
 
-export default log;
-
-export { LogTypes };
+export { log, LogTypes };

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LogTypes = void 0;
+exports.log = log;
 var LogTypes;
 (function (LogTypes) {
     LogTypes["INFO"] = "INFO";
@@ -14,14 +15,6 @@ const TYPES = {
     WARN: console.warn,
     LOG: console.log,
 };
-function exitOnError(severity) {
-    const exitMessage = "Exiting application on ERROR";
-    if (severity === LogTypes.ERROR) {
-        console.log(exitMessage);
-        console.error(exitMessage);
-        process.exit(1);
-    }
-}
 function log(tag, message = "-", severity = LogTypes.INFO) {
     let _logFn;
     switch (severity) {
@@ -40,8 +33,7 @@ function log(tag, message = "-", severity = LogTypes.INFO) {
         default:
             _logFn = TYPES.INFO;
     }
-    _logFn(tag, message);
-    exitOnError(severity);
+    _logFn(Date.now(), tag, `[${severity.toString()}]`, message);
+    return;
 }
-exports.default = log;
 //# sourceMappingURL=package.js.map

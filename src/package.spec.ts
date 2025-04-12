@@ -1,4 +1,4 @@
-import log, { LogTypes } from "./package";
+import { log, LogTypes } from "./package";
 
 describe("log", () => {
     it("is a function", () => {
