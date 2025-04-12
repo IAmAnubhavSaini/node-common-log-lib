@@ -1,39 +1,39 @@
-enum TypesEnum {
-    INFO = 'INFO',
-    ERROR = 'ERROR',
-    WARN = 'WARN',
-    LOG = 'LOG'
+enum LogTypes {
+    INFO = "INFO",
+    ERROR = "ERROR",
+    WARN = "WARN",
+    LOG = "LOG",
 }
 
 const TYPES = {
     INFO: console.info,
     ERROR: console.error,
     WARN: console.warn,
-    LOG: console.log
+    LOG: console.log,
 };
 
-function exitOnError(severity: TypesEnum) {
-    const exitMessage = 'Exiting application on ERROR';
-    if (severity === TypesEnum.ERROR) {
+function exitOnError(severity: LogTypes) {
+    const exitMessage = "Exiting application on ERROR";
+    if (severity === LogTypes.ERROR) {
         console.log(exitMessage);
         console.error(exitMessage);
         process.exit(1);
     }
 }
 
-function log(tag: string, message = '-', severity: TypesEnum = TypesEnum.INFO) {
-    let _logFn: ((tag?: string, message?: string) => never | any);
+function log(tag: string, message = "-", severity: LogTypes = LogTypes.INFO) {
+    let _logFn: (tag?: string, message?: string) => never | any;
     switch (severity) {
-        case TypesEnum.ERROR:
+        case LogTypes.ERROR:
             _logFn = TYPES.ERROR;
             break;
-        case TypesEnum.INFO:
+        case LogTypes.INFO:
             _logFn = TYPES.INFO;
             break;
-        case TypesEnum.WARN:
+        case LogTypes.WARN:
             _logFn = TYPES.WARN;
             break;
-        case TypesEnum.LOG:
+        case LogTypes.LOG:
             _logFn = TYPES.LOG;
             break;
         default:
@@ -47,6 +47,4 @@ function log(tag: string, message = '-', severity: TypesEnum = TypesEnum.INFO) {
 
 export default log;
 
-export {
-    TypesEnum
-};
+export { LogTypes };

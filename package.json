@@ -1,13 +1,13 @@
 {
   "name": "@f0c1s/node-common-log-lib",
-  "version": "2022.3.23",
+  "version": "2025.04.12",
   "description": "A simple logging library.",
   "main": "src/package.js",
   "devDependencies": {
-    "@types/jasmine": "^3.6.7",
-    "@types/node": "^14.14.35",
-    "jasmine": "^3.7.0",
-    "typescript": "^4.2.3"
+    "@types/jasmine": "^5.1.7",
+    "@types/node": "^22.14.1",
+    "jasmine": "^5.6.0",
+    "typescript": "^5.8.3"
   },
   "scripts": {
     "test": "node_modules/.bin/jasmine",
@@ -17,8 +17,10 @@
     "type": "git",
     "url": "git+https://github.com/IAmAnubhavSaini/node-common-log-lib.git"
   },
-  "keywords": [],
-  "author": "Anubhav <iamanubhavsaini@gmail.com>",
+  "keywords": [
+    "logging"
+  ],
+  "author": "Anubhav Saini <iamanubhavsaini+git@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/IAmAnubhavSaini/node-common-log-lib/issues"

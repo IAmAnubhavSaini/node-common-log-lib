@@ -1,10 +1,10 @@
-declare enum TypesEnum {
+declare enum LogTypes {
     INFO = "INFO",
     ERROR = "ERROR",
     WARN = "WARN",
     LOG = "LOG"
 }
-declare function log(tag: string, message?: string, severity?: TypesEnum): void;
+declare function log(tag: string, message?: string, severity?: LogTypes): void;
 export default log;
-export { TypesEnum };
+export { LogTypes };
 //# sourceMappingURL=package.d.ts.map
